@@ -71,7 +71,7 @@ function ChatPage() {
         {/* Emoji Button */}
         <button
           onClick={() => setShowEmojiPicker(!showEmojiPicker)}
-          className="p-0 sm:p-2 text-gray-300 hover:text-white cursor-pointer w-2 sm:w-4"
+          className="p-0 sm:p-2 text-gray-300 hover:text-white cursor-pointer w-3 sm:w-8"
         >
           😊
         </button>
@@ -114,7 +114,7 @@ function ChatPage() {
         {/* Send Button */}
         <button
           onClick={handleSend}
-          className="p-0 sm:p-2 bg-[#62767c] rounded-lg hover:bg-[#90a9b1] w-8 sm:w-16 text-s sm:text-xl "
+          className="p-0 sm:p-2 bg-[#62767c] rounded-lg hover:bg-[#90a9b1] w-12 sm:w-16 text-s sm:text-xl "
         >
           Send
         </button>
