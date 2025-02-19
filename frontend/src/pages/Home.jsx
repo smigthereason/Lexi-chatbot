@@ -38,7 +38,7 @@ export default function Home() {
         Welcome to Lexi
       </h1>
       <p className="text-[#85a193] max-w-3xl text-center mb-12">
-        Your AI-powered assistant for scheduling appointments, chatting, and
+        Your assistant for scheduling appointments, chatting, and
         more. Choose one of the options below to get started.
       </p>
       </div>

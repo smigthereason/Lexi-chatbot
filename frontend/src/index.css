@@ -1,36 +1,5 @@
 @import "tailwindcss";
-/* :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
-  color-scheme: light dark;
-  color: white;
-  background: url("https://images.unsplash.com/photo-1496661415325-ef852f9e8e7c?q=80&w=2127&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
-    no-repeat center center fixed;
-  background-size: cover;
-  backdrop-filter: blur(100px);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -39,11 +8,10 @@
   color-scheme: light dark;
   color: rgb(255, 252, 252);
 
-  /* Remove the background image from :root */
-  /* Other global styles remain here */
+
 }
 
-/* Apply the background image to the body using a pseudo-element */
+/* pseudo-element for background */
 body {
   position: relative;
   margin: 0;
@@ -51,7 +19,7 @@ body {
 
 body::before {
   content: "";
-  position: fixed; /* Ensures the background stays in place */
+  position: fixed; 
   top: 0;
   left: 0;
   width: 100%;
@@ -59,6 +27,43 @@ body::before {
   background: url("https://images.unsplash.com/photo-1508717272800-9fff97da7e8f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
     no-repeat center center fixed;
   background-size: cover;
-  filter: blur(0px); /* Adjust the blur value as needed */
-  z-index: -1; /* Keeps the pseudo-element behind your content */
+  filter: blur(0px); 
+  z-index: -1; 
+}
+/* SchedulePage.css */
+
+input[type="date"],
+input[type="time"] {
+  position: relative;
+  padding-right: 2rem; 
+}
+
+/* Style and center the calendar/time indicator */
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  background-color: #62767c;
+  border-radius: 50%;
+  height: 2vh;
+  width: 1vw;
+  position: absolute;
+  right: 0.5rem;       
+  top: 50%;            
+  transform: translateY(-50%);
+  
+
+}
+
+/* Adjust styles for smaller screens */
+@media (max-width: 600px) {
+  input[type="date"],
+  input[type="time"] {
+    padding-right: 0rem; 
+  }
+
+  input[type="date"]::-webkit-calendar-picker-indicator,
+  input[type="time"]::-webkit-calendar-picker-indicator {
+    height: 2.5vh;  
+    width: 5vw;   
+    right: 0.5rem; 
+  }
 }
