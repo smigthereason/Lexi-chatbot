@@ -67,18 +67,18 @@ function ChatPage() {
       </div>
 
       {/* Input Section */}
-      <div className="relative flex items-center gap-2 bg-gray-800/50 p-3 rounded-lg">
+      <div className="relative flex items-center gap-4 sm:gap-2 bg-gray-800/50 p-3 rounded-lg">
         {/* Emoji Button */}
         <button
           onClick={() => setShowEmojiPicker(!showEmojiPicker)}
-          className="p-2 text-gray-300 hover:text-white cursor-pointer"
+          className="p-0 sm:p-2 text-gray-300 hover:text-white cursor-pointer w-2 sm:w-4"
         >
           😊
         </button>
 
         {/* Emoji Picker (Appears when toggled) */}
         {showEmojiPicker && (
-          <div className="absolute bottom-14 left-4 bg-gray-800 rounded-lg shadow-lg">
+          <div className="absolute bottom-20 sm:bottom-14 left-0 sm:left-4 bg-gray-800 rounded-lg shadow-lg">
             <Picker onEmojiClick={handleEmojiSelect} />
           </div>
         )}
@@ -89,7 +89,7 @@ function ChatPage() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
-          className="flex-1 p-3 bg-gray-700/40 text-white rounded-lg outline-none w-32 sm:w-full"
+          className="flex-1 p-3 bg-gray-700/40 text-white rounded-lg outline-none w-28 sm:w-full"
           placeholder="Type a message..."
         />
 
@@ -102,7 +102,7 @@ function ChatPage() {
         />
         <button
           onClick={() => fileInputRef.current.click()}
-          className="p-2 text-gray-300 hover:text-white"
+          className=" p-0 sm:p-2 text-gray-300 hover:text-white w-2 sm:w-4"
         >
           <img
             src={Clip}
@@ -114,7 +114,7 @@ function ChatPage() {
         {/* Send Button */}
         <button
           onClick={handleSend}
-          className="p-2 bg-[#62767c] rounded-lg hover:bg-[#90a9b1] w-8 sm:w-16 text-xs sm:text-xl "
+          className="p-0 sm:p-2 bg-[#62767c] rounded-lg hover:bg-[#90a9b1] w-8 sm:w-16 text-s sm:text-xl "
         >
           Send
         </button>
