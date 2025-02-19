@@ -20,7 +20,7 @@ export default function SchedulePage() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          user_id: deviceId,
+          phone_number: deviceId,
           date: formData.date,
           time: formData.time,
           reason: formData.reason

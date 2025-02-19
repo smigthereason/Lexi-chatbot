@@ -8,6 +8,7 @@ import ChatPage from './pages/ChatPage';
 import SchedulePage from './pages/SchedulePage';
 import FeedbackPage from './pages/FeedbackPage';
 import Loading from './pages/Loading';
+import PhoneRegistration from './pages/PhoneRegistration';
 
 export default function App() {
   const [initialLoad, setInitialLoad] = useState(true);
@@ -23,6 +24,7 @@ export default function App() {
       
       <Routes>
         <Route path="/loading" element={<Loading />} />
+        <Route path="/phone-registration" element={<PhoneRegistration />} />
         <Route path="/" element={<Home />} />
         
         {/* Nested routes within Layout */}
@@ -31,6 +33,8 @@ export default function App() {
           <Route path="/schedule" element={<SchedulePage />} />
           <Route path="/feedback" element={<FeedbackPage />} />
         </Route>
+         {/* Redirect base path to registration if not authenticated */}
+         <Route path="*" element={<Navigate to="/phone-registration" replace />} />
       </Routes>
     </Router>
   );

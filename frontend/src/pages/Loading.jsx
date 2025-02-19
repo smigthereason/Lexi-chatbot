@@ -16,7 +16,7 @@ export default function Loading() {
 
     // Second timer: navigate after transition completes
     const timer2 = setTimeout(() => {
-      navigate('/');
+      navigate('/phone-registration');
     }, 6000); // 5s wait + 1s for animation
 
     // Cleanup on unmount

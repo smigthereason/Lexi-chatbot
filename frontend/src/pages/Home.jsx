@@ -1,22 +1,31 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Logo from "../components/Logo";
 
 export default function Home() {
+
+  const navigate = useNavigate(); 
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
       once: true,
     });
-  }, []);
+  
+    // Check for registered phone number
+    const registeredNumber = localStorage.getItem('phone_number');
+    if (!registeredNumber) {
+      navigate('/phone-registration');
+    }
+  }, [navigate]);
 
   return (
     <div
-      className="flex flex-col items-center overflow-hidden"
+      className="flex flex-col items-center overflow-hidden p-4"
       data-aos="fade-in"
       data-aos-delay="500"
     >
