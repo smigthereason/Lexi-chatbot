@@ -40,13 +40,13 @@ export default function Home() {
         <div className="bg-transparent filter backdrop-blur-md rounded-lg shadow-lg border border-white  transition-transform hover:scale-95">
           <div className="p-6">
             <h2 className="text-xl font-semibold text-[#62767c] mb-3">Chat</h2>
-            <p className="text-gray-400 mb-4">
+            <p className="text-gray-400 mb-8 h-12">
               Start a conversation with Lexi. Ask questions, get
               recommendations, or just say hello!
             </p>
             <Link
               to="/chat"
-              className="inline-block bg-[#62767c] hover:bg-[#90a9b1] text-white  px-4 py-2 rounded-3xl "
+              className="inline-block bg-[#62767c] hover:bg-[#90a9b1] text-white  px-4 py-2 rounded-3xl mt-6 "
             >
               Start Chatting
             </Link>
@@ -59,13 +59,13 @@ export default function Home() {
             <h2 className="text-xl font-semibold text-[#62767c] mb-3">
               Schedule
             </h2>
-            <p className="text-gray-400 mb-4">
+            <p className="text-gray-400 mb-8 h-12">
               Book appointments, set reminders, and manage your calendar with
               ease.
             </p>
             <Link
               to="/schedule"
-              className="inline-block bg-[#62767c] hover:bg-[#90a9b1] text-white  px-4 py-2 rounded-3xl "
+              className="inline-block bg-[#62767c] hover:bg-[#90a9b1] text-white  px-4 py-2 rounded-3xl mt-6 "
             >
               Schedule Now
             </Link>
@@ -78,12 +78,12 @@ export default function Home() {
             <h2 className="text-xl font-semibold text-[#62767c] mb-3">
               Feedback
             </h2>
-            <p className="text-gray-400 mb-4">
+            <p className="text-gray-400 mb-8 h-12">
               Share your experience with Lexi. Your feedback helps us improve!
             </p>
             <Link
               to="/feedback"
-              className="inline-block bg-[#62767c] hover:bg-[#90a9b1] text-white  px-4 py-2 rounded-3xl "
+              className="inline-block bg-[#62767c] hover:bg-[#90a9b1] text-white  px-4 py-2 rounded-3xl mt-6"
             >
               Give Feedback
             </Link>

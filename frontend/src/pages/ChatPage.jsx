@@ -102,7 +102,7 @@ function ChatPage() {
         />
         <button
           onClick={() => fileInputRef.current.click()}
-          className=" p-0 sm:p-2 text-gray-300 hover:text-white w-2 sm:w-4"
+          className=" p-0 sm:p-2 text-gray-300 hover:text-white w-3 sm:w-8"
         >
           <img
             src={Clip}
