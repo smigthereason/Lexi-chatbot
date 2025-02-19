@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Outlet, NavLink, Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Menu, X } from "lucide-react";
+import Logo from "./assets/lexi-high-resolution-logo-transparent.png"
 
 const Layout = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -22,7 +23,7 @@ const Layout = () => {
           <Link to="/">
             <img
               className="  h-20 w-40 sm:h-auto sm:w-60"
-              src="../src/assets/lexi-high-resolution-logo-transparent.png"
+              src={Logo}
               alt="Lexi"
             />
           </Link>

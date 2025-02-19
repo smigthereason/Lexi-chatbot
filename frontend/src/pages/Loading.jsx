@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/loading.css';
+import Logo from "../assets/lexi-high-resolution-logo-transparent.png"
 
 export default function Loading() {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ export default function Loading() {
   return (
     <div className="loading-container">
       <img
-        src="src/assets/lexi-high-resolution-logo-transparent.png"
+        src={Logo}
         alt="Lexi Logo"
         className={`logo ${animationComplete ? 'animate-to-header' : 'animate-pulse'} w-24 h-24 sm:w-64 sm:h-64 object-contain`}
       />

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Logo from "../components/Logo";
 
 export default function Home() {
   useEffect(() => {
@@ -14,33 +15,23 @@ export default function Home() {
   }, []);
 
   return (
-    
     <div
       className="flex flex-col items-center overflow-hidden"
       data-aos="fade-in"
       data-aos-delay="500"
     >
-      
-
-      
       {/* Logo at the top */}
-      <div className="mb-12 mt-6 logo-container">
-        <img
-          src="src/assets/lexi-high-resolution-logo-transparent.png"
-          alt="Lexi Logo"
-          className="max-w-xs mx-auto"
-        />
-      </div>
+      <Logo />
 
       {/* Welcome text */}
       <div className=" ">
-      <h1 className="text-3xl font-bold  text-[#62767c] mb-8">
-        Welcome to Lexi
-      </h1>
-      <p className="text-[#85a193] max-w-3xl text-center mb-12">
-        Your assistant for scheduling appointments, chatting, and
-        more. Choose one of the options below to get started.
-      </p>
+        <h1 className="text-3xl font-bold  text-[#62767c] mb-8">
+          Welcome to Lexi
+        </h1>
+        <p className="text-[#85a193] max-w-3xl text-center mb-12">
+          Your assistant for scheduling appointments, chatting, and more. Choose
+          one of the options below to get started.
+        </p>
       </div>
 
       {/* Cards Section */}
