@@ -30,6 +30,12 @@ body::before {
   filter: blur(0px); 
   z-index: -1; 
 }
+
+.EmojiPickerReact {
+  background-color: #5a6163 !important;
+  border-radius: 10px !important;
+}
+
 /* SchedulePage.css */
 
 input[type="date"],
