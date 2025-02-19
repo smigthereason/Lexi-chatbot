@@ -1,7 +1,7 @@
-// pages/SchedulePage.jsx
-import { useState } from 'react';
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
+import { useState } from 'react';
+import { getDeviceId } from '../components/utils/deviceId';
 
 export default function SchedulePage() {
   const [formData, setFormData] = useState({
@@ -10,10 +10,27 @@ export default function SchedulePage() {
     reason: ''
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add scheduling logic here
-    console.log('Scheduled:', formData);
+    const deviceId = getDeviceId();
+    try {
+      const response = await fetch('http://127.0.0.1:5000/appointments', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          user_id: deviceId,
+          date: formData.date,
+          time: formData.time,
+          reason: formData.reason
+        }),
+      });
+      if (!response.ok) throw new Error('Failed to schedule appointment');
+      console.log('Appointment scheduled successfully');
+    } catch (error) {
+      console.error('Error scheduling appointment:', error);
+    }
   };
 
   return (

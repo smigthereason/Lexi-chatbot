@@ -1,8 +1,8 @@
-// pages/FeedbackPage.jsx
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import { useState } from 'react';
 import RatingStars from '../components/RatingStars';
+import { getDeviceId } from '../components/utils/deviceId';
 
 export default function FeedbackPage() {
   const [feedback, setFeedback] = useState({
@@ -10,10 +10,26 @@ export default function FeedbackPage() {
     comment: ''
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add feedback submission logic here
-    console.log('Feedback:', feedback);
+    const deviceId = getDeviceId();
+    try {
+      const response = await fetch('http://127.0.0.1:5000/ratings', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          phone_number: deviceId, // Use phone_number as the identifier
+          rating: feedback.rating,
+          feedback: feedback.comment
+        }),
+      });
+      if (!response.ok) throw new Error('Failed to submit feedback');
+      console.log('Feedback submitted successfully');
+    } catch (error) {
+      console.error('Error submitting feedback:', error);
+    }
   };
 
   return (
@@ -25,7 +41,7 @@ export default function FeedbackPage() {
         <div>
           <label className="block mb-2 text-[#62767c]">Additional Feedback</label>
           <textarea
-            className="w-full p-3 border border-[#62767c] rounded-lg"
+            className="w-full p-3 border border-[#62767c] text-[#62767c] rounded-lg"
             rows="4"
             onChange={(e) => setFeedback({...feedback, comment: e.target.value})}
           />
