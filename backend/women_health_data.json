@@ -1,0 +1,25 @@
+{
+    "intents": [
+      {
+        "keywords": ["period", "menstruation", "menstrual cycle"],
+        "response": "A typical menstrual cycle lasts 28 days but can vary. Maintain hygiene, use proper sanitary products, and consult a doctor for severe pain or irregularities."
+      },
+      {
+        "keywords": ["pregnancy", "pregnant", "prenatal"],
+        "response": "Prenatal care is crucial. Take folic acid, avoid alcohol/smoking, and get regular checkups. Contact your OB/GYN for specific advice."
+      },
+      {
+        "keywords": ["menopause", "hot flashes", "hormones"],
+        "response": "Menopause symptoms include hot flashes and mood swings. Hormone replacement therapy (HRT) may help. Discuss options with your doctor."
+      },
+      {
+        "keywords": ["contraception", "birth control", "condoms"],
+        "response": "Options include pills, IUDs, and implants. Effectiveness varies. Consult a healthcare provider to choose the best method for you."
+      },
+      {
+        "keywords": ["breast cancer", "mammogram"],
+        "response": "Regular self-exams and mammograms after 40 are vital. Seek immediate attention for lumps or nipple discharge."
+      }
+    ],
+    "default_response": "I'm here to help with women's health. Ask about periods, pregnancy, menopause, contraception, or breast health."
+  }

@@ -1,38 +1,105 @@
-from flask import Flask, request, jsonify
+# from flask import Flask
+# from flask_sqlalchemy import SQLAlchemy
+# from flask_cors import CORS
+# import os
+
+# # Initialize Flask app
+# app = Flask(__name__)
+# CORS(app)
+
+# # Configuration
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'  # Use a proper database in production
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+# # Initialize Database
+
+#     app.run(debug=True)
+# db.init_app(app)
+
+# # Import models
+# from models import db
+
+# # Import routes and services
+# from routes import main
+# from services import send_whatsapp_message
+
+# # Register Blueprint
+# app.register_blueprint(main)
+
+# # Run App
+# if __name__ == "__main__":
+#     with app.app_context():
+#         db.create_all()
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
-from models import db, User, Appointment, Rating
-import whatsapp_api
 
-app = Flask(__name__)
-CORS(app)
+from routes import main as routes_bp  # Import the routes blueprint
+from models import db  # Import the db instance
 
-# Configure database
-app.config['SQLALCHEMY_DATABASE_URI'] = \
-    'mysql+pymysql://root:yourpassword@localhost/whatsapp_chatbot'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+from flask_cors import CORS  # Import CORS
 
-db.init_app(app)
 
-# Create tables
-with app.app_context():
-    db.create_all()
 
-@app.route('/webhook', methods=['POST'])
-def webhook():
-    data = request.json
-    phone_number = data.get('phone_number')
-    message = data.get('message', '').lower()
+# def create_app():
+#     app = Flask(__name__)
+#     CORS(app, origins=["http://localhost:5173",])
 
-    user = User.query.filter_by(phone_number=phone_number).first()
+#     # Configuration
+#     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'  # Use a proper database in production
+#     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Optional, disables SQLAlchemy's track modifications
 
-    if "health" in message:
-        return whatsapp_api.handle_health_info(phone_number)
-    elif "schedule" in message:
-        return whatsapp_api.handle_appointment(phone_number, user)
-    elif "rate" in message:
-        return whatsapp_api.handle_rating(phone_number, user, data.get('rating'))
-    else:
-        return jsonify({"status": "error", "message": "Invalid request"}), 400
+#     # Enable CORS for frontend requests
+#     CORS(app)
+
+#     # Initialize Database
+#     db.init_app(app)
+
+#     # Register Blueprints
+#     app.register_blueprint(routes_bp)  # Register the routes blueprint
+
+#     return app
+
+# if __name__ == '__main__':
+#     app = create_app()
+#     with app.app_context():
+#         db.create_all()  # Create all tables
+#     app.run(debug=True)
+from flask import Flask
+from flask_cors import CORS
+from flask_migrate import Migrate
+import os
+from dotenv import load_dotenv
+from routes import main as routes_bp  # Import the routes blueprint
+from models import db  # Import the db instance
+
+
+load_dotenv()
+
+WHATSAPP_API_URL = f"https://graph.facebook.com/v22.0/{os.getenv('WHATSAPP_PHONE_ID')}/messages"
+ACCESS_TOKEN = os.getenv('WHATSAPP_ACCESS_TOKEN')
+
+def create_app():
+    app = Flask(__name__)
+
+    # Configuration
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'  # Use a proper database in production
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Optional, disables SQLAlchemy's track modifications
+
+    # Enable CORS for frontend requests
+    CORS(app)
+
+    # Initialize Database
+    db.init_app(app)
+    migrate = Migrate(app, db)
+
+    # Register Blueprints
+    app.register_blueprint(routes_bp)  # Register the routes blueprint
+
+    return app
 
 if __name__ == '__main__':
+    app = create_app()
+    with app.app_context():
+        db.create_all()  # Create all tables
     app.run(debug=True)

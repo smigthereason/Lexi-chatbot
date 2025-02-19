@@ -2,8 +2,8 @@ from flask import jsonify
 from models import db, User, Appointment, Rating
 import requests
 
-WHATSAPP_API_URL = "https://graph.facebook.com/v18.0/<PHONE_NUMBER_ID>/messages"
-ACCESS_TOKEN = "your_access_token"
+WHATSAPP_API_URL = "https://graph.facebook.com/v22.0/609528828907360/messages"
+ACCESS_TOKEN = "EAAIg9YscvZCUBO5bmiV5T7wjgsyj52IgBH5UVrae7tUgthjFKSnZBjoErWEWZAP31EHHNrBNd4bSwNIwRh2LFip9pmd80v21HZB3FxRSzBOq9ywO3l9oBS3HZCfwv9THZBoaGfdaqUeuivZAMtfkvXLFHfc7c1MTnTERtx6qiicgKiZAyCMq7tC99Kv9rsbpZAgQJi46DqRBto5jUZC8GJICZBVZCr8uSjB3AZCvxBdEZD"
 
 def send_whatsapp_message(phone_number, message):
     headers = {
