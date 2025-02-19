@@ -1,18 +1,20 @@
 @import "tailwindcss";
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
   color: white;
-  background-color: black;
+  background: url("https://images.unsplash.com/photo-1496661415325-ef852f9e8e7c?q=80&w=2127&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+    no-repeat center center fixed;
+  background-size: cover;
+  backdrop-filter: blur(100px);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
 }
 
 
@@ -28,4 +30,35 @@
   button {
     background-color: #f9f9f9;
   }
+} */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgb(255, 252, 252);
+
+  /* Remove the background image from :root */
+  /* Other global styles remain here */
+}
+
+/* Apply the background image to the body using a pseudo-element */
+body {
+  position: relative;
+  margin: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed; /* Ensures the background stays in place */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("https://images.unsplash.com/photo-1508717272800-9fff97da7e8f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+    no-repeat center center fixed;
+  background-size: cover;
+  filter: blur(0px); /* Adjust the blur value as needed */
+  z-index: -1; /* Keeps the pseudo-element behind your content */
 }

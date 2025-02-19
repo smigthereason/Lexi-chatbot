@@ -1,5 +1,4 @@
-// import React, { useState } from "react";
-// import { Outlet, NavLink } from "react-router-dom";
+// import { Outlet, NavLink, Link } from "react-router-dom";
 // import PropTypes from 'prop-types';
 
 // const Layout = () => {
@@ -12,12 +11,13 @@
 //   ];
 
 //   const Sidebar = ({ className = "h-11/12" }) => (
-//     <aside className={`bg-white rounded-2xl shadow-sm ${className}`}>
+//     <aside className={`bg-transparent filter backdrop-blur-md  border border-[#62767c] rounded-2xl shadow-sm flex flex-col ${className}`}>
 //       <div className="p-4 flex items-center gap-2">
 //         <div>
+//           <Link to="/">
 //           <img
 //             className="hidden sm:block h-auto w-60"
-//             src="../src/assets/lexi-high-resolution-logo-transparent.webp"
+//             src="../src/assets/lexi-high-resolution-logo-transparent.png"
 //             alt="Lexi"
 //           />
 //           <img
@@ -25,18 +25,19 @@
 //             src="/src/assets/Logos/black-hq.png"
 //             alt="E Logo Small"
 //           />
+//           </Link>
 //         </div>
 //         {isMobileMenuOpen && (
 //           <button 
 //             className="ml-auto text-gray-400 sm:hidden"
 //             onClick={() => setIsMobileMenuOpen(false)}
 //           >
-//             {/* <X className="w-6 h-6" /> */}
+//             <X className="w-6 h-6" />
 //           </button>
 //         )}
 //       </div>
 
-//       <nav className="mt-4 px-2">
+//       <nav className="mt-4 px-2 flex-1 overflow-hidden hover:overflow-y-auto">
 //         {sidebarLinks.map((link) => (
 //           <NavLink
 //             key={link.path}
@@ -45,8 +46,8 @@
 //             className={({ isActive }) =>
 //               `flex items-center gap-3 px-4 py-2.5 text-sm transition-colors rounded-xl mb-1 ${
 //                 isActive
-//                   ? "text-white bg-[#D8798F] font-medium"
-//                   : "text-gray-600 hover:bg-[#D8798F] hover:text-white"
+//                   ? "text-white bg-[#62767c] font-medium"
+//                   : "text-gray-600 hover:bg-[#62767c] hover:text-white"
 //               }`
 //             }
 //           >
@@ -62,9 +63,9 @@
 //   };
 
 //   return (
-//     <div className="h-11/12 overflow-hidden flex flex-col md:flex-row p-2 sm:p-4 gap-4">
+//     <div className="h-screen flex flex-col md:flex-row p-2 sm:p-4 gap-4">
 //       {/* Desktop Sidebar */}
-//       <div className="hidden md:block w-64 h-[calc(100vh-32px)]">
+//       <div className="hidden md:block w-64 h-full">
 //         <Sidebar />
 //       </div>
 
@@ -80,7 +81,7 @@
 
 //       {/* Main Content Area */}
 //       <div className="flex-1 flex flex-col gap-4 min-w-0 h-11/12">
-//         <main className="flex-1 bg-gray-200 rounded-2xl shadow-sm p-4 sm:p-6 overflow-hidden">
+//         <main className="flex-1 bg-transparent filter backdrop-blur-md border border-[#62767c] rounded-2xl shadow-sm p-4 sm:p-6">
 //           <Outlet />
 //         </main>
 //       </div>
@@ -89,9 +90,12 @@
 // };
 
 // export default Layout;
+
+// eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
-import { Outlet, NavLink } from "react-router-dom";
-import PropTypes from 'prop-types';
+import { Outlet, NavLink, Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { Menu, X } from "lucide-react";
 
 const Layout = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -103,26 +107,27 @@ const Layout = () => {
   ];
 
   const Sidebar = ({ className = "h-11/12" }) => (
-    <aside className={`bg-white rounded-2xl shadow-sm flex flex-col ${className}`}>
+    <aside
+      className={`bg-transparent filter backdrop-blur-md border border-[#62767c] rounded-2xl shadow-sm flex flex-col ${className}`}
+    >
       <div className="p-4 flex items-center gap-2">
         <div>
-          <img
-            className="hidden sm:block h-auto w-60"
-            src="../src/assets/lexi-high-resolution-logo-transparent.webp"
-            alt="Lexi"
-          />
-          <img
-            className="block sm:hidden h-16 w-16"
-            src="/src/assets/Logos/black-hq.png"
-            alt="E Logo Small"
-          />
+          <Link to="/">
+            <img
+              className="  h-20 w-40 sm:h-auto sm:w-60"
+              src="../src/assets/lexi-high-resolution-logo-transparent.png"
+              alt="Lexi"
+            />
+         
+          </Link>
         </div>
+        {/* Close button for mobile sidebar */}
         {isMobileMenuOpen && (
-          <button 
+          <button
             className="ml-auto text-gray-400 sm:hidden"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            {/* <X className="w-6 h-6" /> */}
+            <X className="w-6 h-6" />
           </button>
         )}
       </div>
@@ -136,8 +141,8 @@ const Layout = () => {
             className={({ isActive }) =>
               `flex items-center gap-3 px-4 py-2.5 text-sm transition-colors rounded-xl mb-1 ${
                 isActive
-                  ? "text-white bg-[#D8798F] font-medium"
-                  : "text-gray-600 hover:bg-[#D8798F] hover:text-white"
+                  ? "text-white bg-[#62767c] font-medium"
+                  : "text-gray-600 hover:bg-[#62767c] hover:text-white"
               }`
             }
           >
@@ -162,16 +167,33 @@ const Layout = () => {
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-50 md:hidden">
-          <div className="absolute inset-0 bg-black/50" onClick={() => setIsMobileMenuOpen(false)} />
+          <div
+            className="absolute inset-0 bg-black/50"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
           <div className="absolute left-0 top-0 bottom-0 w-64 animate-slide-right">
             <Sidebar className="h-full" />
           </div>
         </div>
       )}
 
+      {/* Mobile Menu Button */}
+      <div className="md:hidden">
+        {!isMobileMenuOpen && (
+          <div className="p-4">
+            <button
+              className="text-gray-400"
+              onClick={() => setIsMobileMenuOpen(true)}
+            >
+              <Menu className="w-10 h-10 relative left-36 text-[#62767c]" />
+            </button>
+          </div>
+        )}
+      </div>
+
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col gap-4 min-w-0 h-11/12">
-        <main className="flex-1 bg-gray-200 rounded-2xl shadow-sm p-4 sm:p-6">
+        <main className="flex-1 bg-transparent filter backdrop-blur-md border border-[#62767c] rounded-2xl shadow-sm p-4 sm:p-6">
           <Outlet />
         </main>
       </div>

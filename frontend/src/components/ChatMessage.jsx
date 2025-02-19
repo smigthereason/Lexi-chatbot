@@ -4,8 +4,8 @@ import React from 'react';
 
 function ChatMessage({ message, isBot }) {
   return (
-    <div className={`flex ${isBot ? 'justify-start' : 'justify-end'} mb-4`}>
-      <div className={`max-w-3xl p-4 rounded-lg ${isBot ? 'bg-white shadow-md' : 'bg-purple-600 text-white'}`}>
+    <div className={`flex ${isBot ? 'justify-start' : 'justify-end'} mb-4 `}>
+      <div className={`max-w-3xl p-4 rounded-lg ${isBot ? 'bg-white shadow-md' : 'bg-[#62767c] text-white'}`}>
         {message.type === 'text' && <p>{message.content}</p>}
         {message.type === 'image' && (
           <img src={message.content} alt="Chat content" className="rounded-lg max-w-xs" />
@@ -20,7 +20,7 @@ function ChatMessage({ message, isBot }) {
             {message.quickReplies.map((reply, index) => (
               <button
                 key={index}
-                className="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm"
+                className="px-3 py-1 bg-white text-[#62767c] rounded-full text-sm"
               >
                 {reply}
               </button>

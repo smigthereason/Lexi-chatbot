@@ -1,7 +1,6 @@
 // pages/ChatPage.jsx
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import ChatMessage from '../components/ChatMessage';
 
 function ChatPage() {
@@ -13,6 +12,12 @@ function ChatPage() {
       setMessages([...messages, { content: input, isBot: false }]);
       // Add chatbot response logic here
       setInput('');
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSend();
     }
   };
 
@@ -33,12 +38,13 @@ function ChatPage() {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          className="flex-1 p-3 border rounded-lg"
+          onKeyDown={handleKeyDown}
+          className="flex-1 p-3 border border-[#62767c] rounded-lg text-gray-400"
           placeholder="Type your message..."
         />
         <button
           onClick={handleSend}
-          className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700"
+          className="px-6 py-3 bg-[#62767c] text-white rounded-lg hover:bg-[#90a9b1]"
         >
           Send
         </button>

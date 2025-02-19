@@ -8,7 +8,7 @@ export default function RatingStars({ onRating }) {
   const [hover, setHover] = useState(0);
 
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-2 justify-center items-center">
       {[...Array(5)].map((_, index) => {
         const ratingValue = index + 1;
         return (

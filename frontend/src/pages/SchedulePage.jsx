@@ -17,38 +17,38 @@ export default function SchedulePage() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto">
-      <h2 className="text-2xl font-bold mb-6 text-purple-600">Schedule Appointment</h2>
+    <div className="max-w-2xl mx-auto text-gray-400">
+      <h2 className="text-2xl font-bold mb-6 text-[#62767c]">Schedule Appointment</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block mb-2">Date</label>
+          <label className="block mb-2 text-gray-400">Date</label>
           <input
             type="date"
             required
-            className="w-full p-3 border rounded-lg"
+            className="w-full p-3 border border-[#62767c] rounded-lg"
             onChange={(e) => setFormData({...formData, date: e.target.value})}
           />
         </div>
         <div>
-          <label className="block mb-2">Time</label>
+          <label className="block mb-2 text-gray-400">Time</label>
           <input
             type="time"
             required
-            className="w-full p-3 border rounded-lg"
+            className="w-full p-3 border border-[#62767c] rounded-lg"
             onChange={(e) => setFormData({...formData, time: e.target.value})}
           />
         </div>
         <div>
-          <label className="block mb-2">Reason</label>
+          <label className="block mb-2 text-gray-400">Reason</label>
           <textarea
             required
-            className="w-full p-3 border rounded-lg"
+            className="w-full p-3 border border-[#62767c] rounded-lg"
             onChange={(e) => setFormData({...formData, reason: e.target.value})}
           />
         </div>
         <button
           type="submit"
-          className="w-full py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700"
+          className="w-full py-3 bg-[#62767c] text-white rounded-lg hover:bg-[#90a9b1]"
         >
           Schedule Appointment
         </button>

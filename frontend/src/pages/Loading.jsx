@@ -11,12 +11,12 @@ export default function Loading() {
     // First timer: wait 5 seconds before starting transition
     const timer1 = setTimeout(() => {
       setAnimationComplete(true);
-    }, 500);
+    }, 5000);
 
     // Second timer: navigate after transition completes
     const timer2 = setTimeout(() => {
       navigate('/');
-    }, 600); // 5s wait + 1s for animation
+    }, 6000); // 5s wait + 1s for animation
 
     // Cleanup on unmount
     return () => {
@@ -30,7 +30,7 @@ export default function Loading() {
       <img
         src="src/assets/lexi-high-resolution-logo-transparent.png"
         alt="Lexi Logo"
-        className={`logo ${animationComplete ? 'animate-to-header' : 'animate-pulse'} w-64 h-64 object-contain`}
+        className={`logo ${animationComplete ? 'animate-to-header' : 'animate-pulse'} w-24 h-24 sm:w-64 sm:h-64 object-contain`}
       />
     </div>
   );
