@@ -72,7 +72,7 @@ function PhoneRegistration() {
               className={`w-full text-gray-700/50 p-3 border ${
                 isValid ? "border-gray-300" : "border-red-500"
               } rounded-lg focus:ring-2 focus:ring-[#62767c] focus:border-transparent`}
-              placeholder="+919876543210"
+              placeholder="+254723654321"
               pattern="^\+[1-9]\d{1,14}$"
             />
             {!isValid && (

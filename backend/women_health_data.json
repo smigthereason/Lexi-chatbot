@@ -1,25 +1,85 @@
 {
-    "intents": [
-      {
-        "keywords": ["period", "menstruation", "menstrual cycle"],
-        "response": "A typical menstrual cycle lasts 28 days but can vary. Maintain hygiene, use proper sanitary products, and consult a doctor for severe pain or irregularities."
-      },
-      {
-        "keywords": ["pregnancy", "pregnant", "prenatal"],
-        "response": "Prenatal care is crucial. Take folic acid, avoid alcohol/smoking, and get regular checkups. Contact your OB/GYN for specific advice."
-      },
-      {
-        "keywords": ["menopause", "hot flashes", "hormones"],
-        "response": "Menopause symptoms include hot flashes and mood swings. Hormone replacement therapy (HRT) may help. Discuss options with your doctor."
-      },
-      {
-        "keywords": ["contraception", "birth control", "condoms"],
-        "response": "Options include pills, IUDs, and implants. Effectiveness varies. Consult a healthcare provider to choose the best method for you."
-      },
-      {
-        "keywords": ["breast cancer", "mammogram"],
-        "response": "Regular self-exams and mammograms after 40 are vital. Seek immediate attention for lumps or nipple discharge."
-      }
-    ],
-    "default_response": "I'm here to help with women's health. Ask about periods, pregnancy, menopause, contraception, or breast health."
-  }
+  "intents": [
+    {
+      "keywords": ["period", "menstruation", "menstrual cycle", "cramps", "PMS"],
+      "response": "The menstrual cycle typically lasts 21-35 days. Key points:\n- Use menstrual cups, pads, or tampons\n- Manage cramps with heat therapy or NSAIDs\n- Track cycles for irregularities\n- Severe pain (dysmenorrhea) or heavy bleeding (menorrhagia) may indicate conditions like endometriosis\n- Maintain iron levels to prevent anemia\nConsult a gynecologist if cycles are shorter than 21 days, longer than 35 days, or accompanied by debilitating symptoms."
+    },
+    {
+      "keywords": ["pregnancy", "pregnant", "prenatal", "gestation", "childbirth"],
+      "response": "Essential pregnancy care:\n1. First trimester: Start prenatal vitamins (folic acid)\n2. Second trimester: Monitor fetal movement\n3. Third trimester: Prepare for delivery\n- Avoid raw fish, deli meats, and unpasteurized cheese\n- Track blood pressure for preeclampsia signs\n- Recommended weight gain: 25-35 lbs (normal BMI)\n- Consider childbirth classes and birth plan\nEmergency signs: Severe swelling, reduced fetal movement, or vaginal bleeding."
+    },
+    {
+      "keywords": ["menopause", "hot flashes", "hormones", "perimenopause", "estrogen"],
+      "response": "Menopause typically occurs between 45-55 years. Management strategies:\n- HRT (hormone replacement therapy) pros/cons\n- Non-hormonal options: SSRIs, gabapentin\n- Lifestyle: Layer clothing, reduce caffeine\n- Bone health: Increase calcium/vitamin D\n- Vaginal dryness: Use water-based lubricants\n- Monitor cardiovascular health\nAverage duration of symptoms: 4-7 years."
+    },
+    {
+      "keywords": ["contraception", "birth control", "condoms", "IUD", "sterilization"],
+      "response": "Contraceptive options comparison:\n| Method       | Effectiveness | Duration     | Side Effects          |\n|--------------|---------------|-------------|-----------------------|\n| Copper IUD   | 99%           | 10 years    | Heavier periods       |\n| Hormonal IUD | 99%           | 3-7 years   | Spotting              |\n| Pill         | 91%           | Daily       | Nausea, blood clots   |\n| Implant      | 99%           | 3 years     | Irregular bleeding    |\nEmergency contraception options available within 120 hours. Consider STI protection with barrier methods."
+    },
+    {
+      "keywords": ["breast cancer", "mammogram", "lumpectomy", "BRCA", "chemotherapy"],
+      "response": "Breast cancer prevention:\n- Monthly self-exams (5-7 days post-period)\n- Clinical exams annually after 40\n- Mammograms: Baseline at 40, yearly after 45\n- High-risk patients: MRI screening\n- Genetic testing for BRCA mutations\nWarning signs: Puckered skin, inverted nipple, orange-peel texture. Treatment options include radiation, targeted therapy, and immunotherapy."
+    },
+    {
+      "keywords": ["PCOS", "polycystic", "ovarian cysts", "hirsutism", "insulin resistance"],
+      "response": "Polycystic Ovary Syndrome management:\n- Diagnostic criteria: Rotterdam standards\n- Treatment: Metformin for insulin resistance\n- Birth control for cycle regulation\n- Anti-androgens for excess hair\n- Weight management improves symptoms\n- Fertility options: Letrozole ovulation induction\nAssociated risks: Type 2 diabetes, endometrial cancer. Regular glucose monitoring recommended."
+    },
+    {
+      "keywords": ["endometriosis", "pelvic pain", "adenomyosis", "laparoscopy"],
+      "response": "Endometriosis characteristics:\n- Tissue growth outside uterus\n- Stage I (mild) to IV (severe)\n- Treatments:\n  - NSAIDs for pain\n  - Hormonal suppression\n  - Excision surgery\n- Fertility preservation options\n- Possible bowel/bladder involvement\nDiagnosis confirmed via laparoscopy. Average delay in diagnosis: 7-10 years."
+    },
+    {
+      "keywords": ["ovarian health", "ovarian cysts", "torsion", "CA-125"],
+      "response": "Ovarian concerns:\n- Functional cysts (common, often resolve)\n- Complex cysts may require surgery\n- Torsion symptoms: Sudden severe pain\n- CA-125 blood test (limited specificity)\n- TVUS for imaging\n- Risk factors for cancer: Family history, BRCA\nPost-menopausal cysts always require evaluation."
+    },
+    {
+      "keywords": ["vaginal health", "yeast infection", "BV", "pH balance", "discharge"],
+      "response": "Vaginal health maintenance:\n- Normal discharge: Clear/white, varies cyclically\n- Yeast infection: Thick white discharge, itching\n- Bacterial Vaginosis: Fishy odor, thin discharge\n- Avoid douching\n- Probiotics for microbiome balance\n- STI testing for persistent symptoms\nPostmenopausal: Consider topical estrogen for atrophy."
+    },
+    {
+      "keywords": ["sexual health", "libido", "dyspareunia", "arousal", "vaginismus"],
+      "response": "Sexual wellness considerations:\n- Hormonal causes (low testosterone)\n- Psychological factors\n- Lubricants/moisturizers\n- Pelvic floor therapy\n- STI protection strategies\n- Screen for domestic violence\nMedications affecting desire: SSRIs, birth control\nNon-hormonal treatments: Flibanserin, bremelanotide."
+    },
+    {
+      "keywords": ["postpartum", "lochia", "episiotomy", "lactation", "postnatal"],
+      "response": "Postpartum recovery timeline:\n- 6 weeks: Pelvic rest\n- Watch for infection signs\n- Mental health screening (PPD)\n- Breastfeeding support\n- Pelvic floor rehabilitation\nWarning signs: Fever >100.4°F, heavy bleeding, leg swelling\nContraception needed even while breastfeeding."
+    },
+    {
+      "keywords": ["HPV", "pap smear", "colposcopy", "cervical cancer", "vaccine"],
+      "response": "HPV information:\n- 80% sexually active adults exposed\n- Gardasil 9 vaccine: Up to age 45\n- Pap smear guidelines:\n  - 21-29: Every 3 years\n  - 30-65: Pap + HPV co-testing every 5 years\n- ASCUS/LSIL follow-up protocols\n- LEEP procedure for precancerous changes\nSmoking increases cervical cancer risk."
+    },
+    {
+      "keywords": ["UTI", "urinary tract", "cystitis", "pyelonephritis", "dysuria"],
+      "response": "UTI prevention and treatment:\n- Cranberry research findings mixed\n- Post-coital voiding\n- Antibiotic stewardship\n- Complicated vs uncomplicated UTIs\n- Recurrent UTIs: Low-dose prophylaxis\n- Kidney infection signs: Flank pain, fever\nPostmenopausal: Topical estrogen reduces risk."
+    },
+    {
+      "keywords": ["nutrition", "iron deficiency", "calcium", "prenatal vitamins", "osteoporosis"],
+      "response": "Women's nutritional needs:\n- Iron: 18mg/day (27mg pregnancy)\n- Calcium: 1000-1200mg/day\n- Folate: 400mcg pre-conception\n- Omega-3s for fetal development\n- Vitamin D3 supplementation\n- Protein needs increase with age\nSpecial considerations for vegetarians/vegans."
+    },
+    {
+      "keywords": ["mental health", "PMS", "PMDD", "postpartum depression", "anxiety"],
+      "response": "Gender-specific mental health:\n- PMDD treatment: SSRIs, cycle suppression\n- Perimenopausal mood swings\n- Postpartum psychosis emergency\n- Trauma-informed care\n- Eating disorder prevalence\n- Hormonal contraception mood effects\nScreening tools: Edinburgh Scale, PHQ-9."
+    },
+    {
+      "keywords": ["fertility", "ovulation", "infertility", "IVF", "amh"],
+      "response": "Fertility factors:\n- AMH testing limitations\n- HSG for tubal patency\n- Male factor 40% of cases\n- IVF success rates by age:\n  - <35: 55%\n  - 35-37: 40%\n  - 38-40: 26%\n- Miscarriage risk factors\n- Fertility preservation options"
+    },
+    {
+      "keywords": ["STI", "chlamydia", "gonorrhea", "herpes", "syphilis"],
+      "response": "STI protection and testing:\n- Annual screening <25 sexually active\n- PrEP for HIV prevention\n- PID risks from untreated infections\n- Partner notification protocols\n- Asymptomatic infections common\n- Vertical transmission prevention\nTest of cure required for some infections."
+    },
+    {
+      "keywords": ["osteoporosis", "bone density", "dexa scan", "fracture", "vitamin d"],
+      "response": "Bone health management:\n- DEXA scan starting at 65\n- T-score interpretation\n- Bisphosphonate therapy\n- Weight-bearing exercises\n- Calcium/Vitamin D requirements\n- SERMs as alternatives\n- Kyphosis screening\nFall prevention strategies for elderly."
+    },
+    {
+      "keywords": ["thyroid", "hypothyroidism", "hashimoto", "goiter", "TSH"],
+      "response": "Thyroid disorders in women:\n- 8x more common than men\n- Symptoms: Fatigue, weight changes\n- Pregnancy TSH goals: <2.5\n- Hashimoto's antibodies\n- Nodule evaluation protocol\n- Postpartum thyroiditis\nLevothyroxine administration guidelines."
+    },
+    {
+      "keywords": ["fibroids", "leiomyoma", "myomectomy", "embolization", "heavy bleeding"],
+      "response": "Uterine fibroid management:\n- Location classifications\n- Medical therapy: GnRH agonists\n- Surgical options: Hysterectomy vs conservation\n- UAE outcomes\n- Fertility considerations\n- MRI-guided focused ultrasound\nBlack women: 3x higher incidence."
+    }
+  ],
+  "default_response": "I specialize in women's health information. You can ask about:\n- Menstrual health & cycle tracking\n- Pregnancy planning & prenatal care\n- Menopause management\n- Contraception comparisons\n- Cancer screenings (breast/cervical)\n- Gynecological conditions (PCOS, endometriosis)\n- Sexual wellness & STI prevention\n- Bone health & chronic conditions\nAlways consult your healthcare provider for personal medical advice."
+}
