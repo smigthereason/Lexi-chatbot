@@ -120,7 +120,9 @@ def send_whatsapp_message(phone, message):
         raise ValueError("WhatsApp credentials not configured")
     
     # Clean and format phone number
+    print(f"Dirty phone: {phone}")
     cleaned_phone = clean_phone_number(phone)
+    print(f"Clean phone: {cleaned_phone}")
     
     headers = {
         "Authorization": f"Bearer {access_token}",
