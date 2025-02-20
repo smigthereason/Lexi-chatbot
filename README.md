@@ -115,7 +115,8 @@ npm run lint       # Run ESLint
 ### Backend Development Commands
 ```bash
 flask run --debug  # Run with debug mode
-pytest            # Run tests
+python whatsapp_diagnostic.py  #run to debug whatsapp parameters in env
+python app.py          # Run 
 ```
 
 ## Project Structure
