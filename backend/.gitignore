@@ -10,13 +10,13 @@ __pycache__/
 *$py.class
 
 # Flask instance folder
-instance/
+# instance/
 
-# Database files
-*.db
-*.sqlite
+# # Database files
+# *.db
+# *.sqlite
 
-# Distribution / packaging
-dist/
-build/
-*.egg-info/
+# # Distribution / packaging
+# dist/
+# build/
+# *.egg-info/
